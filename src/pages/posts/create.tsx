@@ -1,3 +1,6 @@
+export {};
+/*
+
 import { useState } from "react";
 import { useTranslate, IResourceComponentsProps } from "@pankod/refine-core";
 import {
@@ -99,4 +102,4 @@ export const PostCreate: React.FC<IResourceComponentsProps> = () => {
       </Form>
     </Create>
   );
-};
+};*/

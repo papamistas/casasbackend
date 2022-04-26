@@ -1,3 +1,5 @@
+import { useState } from "react";
+/*
 import {
   useTranslate,
   IResourceComponentsProps,
@@ -43,3 +45,4 @@ export const PostShow: React.FC<IResourceComponentsProps> = () => {
     </Show>
   );
 };
+*/

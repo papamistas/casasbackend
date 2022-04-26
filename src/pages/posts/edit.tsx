@@ -1,4 +1,6 @@
 import { useState } from "react";
+/*
+import { useState } from "react";
 import { useTranslate, IResourceComponentsProps } from "@pankod/refine-core";
 import {
   Edit,
@@ -100,3 +102,4 @@ export const PostEdit: React.FC<IResourceComponentsProps> = () => {
     </Edit>
   );
 };
+*/

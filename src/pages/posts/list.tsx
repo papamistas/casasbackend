@@ -1,3 +1,5 @@
+import { useState } from "react";
+/*
 import {
   useTranslate,
   IResourceComponentsProps,
@@ -124,3 +126,4 @@ export const PostList: React.FC<IResourceComponentsProps> = () => {
     </List>
   );
 };
+*/
