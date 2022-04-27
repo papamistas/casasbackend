@@ -1,26 +1,28 @@
-import { Refine } from "@pankod/refine-core";
-/*
-import { Refine, AuthProvider } from "@pankod/refine-core";
-import { Layout, ReadyPage, notificationProvider, ErrorComponent } from "@pankod/refine-antd";
+import {Refine, AuthProvider} from "@pankod/refine-core";
+import {
+    notificationProvider,
+    Layout,
+    ErrorComponent
+} from "@pankod/refine-antd";
 import dataProvider from "@pankod/refine-simple-rest";
 import routerProvider from "@pankod/refine-react-router-v6";
-import { useAuth0 } from "@auth0/auth0-react";
+import {useAuth0} from "@auth0/auth0-react";
+import axios from "axios";
 
 import "@pankod/refine-antd/dist/styles.min.css";
 
-import { Login } from "pages/login";
-
-import axios from "axios";
+import {PostList, PostCreate, PostEdit, PostShow} from "pages/posts";
+import {Login} from "pages/login";
 
 const API_URL = "https://api.fake-rest.refine.dev";
 
-const App = () => {
+const App: React.FC = () => {
     const {
         isLoading,
         isAuthenticated,
         user,
         logout,
-        getIdTokenClaims,
+        getIdTokenClaims
     } = useAuth0();
 
     if (isLoading) {
@@ -32,7 +34,7 @@ const App = () => {
             return Promise.resolve();
         },
         logout: () => {
-            logout({ returnTo: window.location.origin });
+            logout({returnTo: window.location.origin});
             return Promise.resolve("/");
         },
         checkError: () => Promise.resolve(),
@@ -44,21 +46,20 @@ const App = () => {
             return Promise.reject();
         },
         getPermissions: () => Promise.resolve(),
-        getUserIdentity: () => {
+        getUserIdentity: async () => {
             if (user) {
-                return  Promise.resolve({
+                return Promise.resolve({
                     ...user,
-                    avatar: user.picture,
+                    avatar: user.picture
                 });
             }
-
-        },
+        }
     };
 
     getIdTokenClaims().then((token) => {
         if (token) {
             axios.defaults.headers.common = {
-                Authorization: `Bearer ${token.__raw}`,
+                Authorization: `Bearer ${token.__raw}`
             };
         }
     });
@@ -66,15 +67,23 @@ const App = () => {
     return (
         <Refine
             LoginPage={Login}
-            routerProvider={routerProvider}
             authProvider={authProvider}
             dataProvider={dataProvider(API_URL, axios)}
-            Layout={Layout}
-            ReadyPage={ReadyPage}
+            routerProvider={routerProvider}
+            resources={[
+                {
+                    name: "posts",
+                    list: PostList,
+                    create: PostCreate,
+                    edit: PostEdit,
+                    show: PostShow
+                }
+            ]}
             notificationProvider={notificationProvider}
-            catchAll={<ErrorComponent />}
+            Layout={Layout}
+            catchAll={<ErrorComponent/>}
         />
     );
 };
 
-export default App;*/
+export default App;
