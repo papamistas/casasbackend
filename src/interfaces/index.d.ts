@@ -21,7 +21,7 @@ export interface ICasa {
 export interface ICasaimages {
     id: number;
     codCasa: number;
-    img1: any;
+    img1: string;
 }
 
 export interface ICategory {

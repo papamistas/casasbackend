@@ -21,7 +21,12 @@ import {
 } from "@pankod/refine-antd";
 import {ICasa, IDestino, ITipo} from "interfaces";
 
-import {ImageList, ImageListItem} from "@mui/material";
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import ListSubheader from '@mui/material/ListSubheader';
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/material/Icon';
 import {useList} from "@pankod/refine-core";
 import {useAuth0} from "@auth0/auth0-react";
 
@@ -94,19 +99,34 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
         optionLabel: "tipo",
         optionValue: "idTipo",
     });
+
     return (
+//todo cannot get item.casaimages.img1 because data do not come.
         <List>
             <ImageList sx={{width: 500, height: 450}} cols={3} rowHeight={164}>
-                {casasdt.data?.data?.map((item) => (
+                {casasdt?.data?.data?.map((item) => (
                     <ImageListItem key={item.codCasa}>
                         <img
-                            src={`${item.casaimages.img1}?w=164&h=164&fit=crop&auto=format`}
-                            srcSet={`${item.casaimages.img1}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                            /*src={`${item.casaimages}?w=164&h=164&fit=crop&auto=format`}*/
+                            src="/images/noimage.jpg?w=164&h=164&fit=crop&auto=format"
+                            srcSet={`${item.casaimages}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                             alt={item.seoTitle}
                             loading="lazy"
                         />
+                        <ImageListItemBar
+                            title={item.casaimages}
+                            subtitle={item.codCasa}
+                            actionIcon={
+                                <IconButton
+                                    sx={{color: 'rgba(255, 255, 255, 0.54)'}}
+                                    aria-label={`info about ${item.seoTitle}`}
+                                >
+                                    <InfoIcon/>
+                                </IconButton>
+                            }
+                        />
                     </ImageListItem>
-                ))} :
+                ))} ??
 
             </ImageList>
             <Table {...tableProps} rowKey="codCasa">
