@@ -1,7 +1,7 @@
 import {
     useTranslate,
     IResourceComponentsProps,
-    useMany, AuthProvider,
+    useMany
 } from "@pankod/refine-core";
 import {
     List,
@@ -97,7 +97,7 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
     return (
         <List>
             <ImageList sx={{width: 500, height: 450}} cols={3} rowHeight={164}>
-                {casasdt.status == 'success' ? casasdt.data.data.map((item) => (
+                {casasdt.data?.data?.map((item) => (
                     <ImageListItem key={item.codCasa}>
                         <img
                             src={`${item.casaimages.img1}?w=164&h=164&fit=crop&auto=format`}
@@ -106,7 +106,7 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
                             loading="lazy"
                         />
                     </ImageListItem>
-                )) : []}
+                ))} :
 
             </ImageList>
             <Table {...tableProps} rowKey="codCasa">

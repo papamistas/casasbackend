@@ -1,6 +1,4 @@
-import {useLogin} from "@pankod/refine-core";
-
-import {AntdLayout, Button} from "@pankod/refine-antd";
+import {AntdLayout, Button, Image} from "@pankod/refine-antd";
 import {useAuth0} from "@auth0/auth0-react";
 
 export const Login: React.FC = () => {
@@ -16,7 +14,10 @@ export const Login: React.FC = () => {
             <div style={{height: "100vh", display: "flex"}}>
                 <div style={{maxWidth: "200px", margin: "auto"}}>
                     <div style={{marginBottom: "28px"}}>
-                        <img src="./refine.svg" alt="Refine"/>
+                        <Image width={100} src="/images/Ranpant-logos.jpg?w=164&h=164&fit=crop&auto=format"
+                               alt="Ranpant"/>
+
+
                     </div>
                     <Button
                         type="primary"

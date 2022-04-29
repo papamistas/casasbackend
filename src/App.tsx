@@ -94,7 +94,6 @@ function App() {
                 {name: "casas", icon: Icons, list: CasaList, create: CasaCreate, edit: CasaEdit, show: CasaShow},
                 {name: "destinos", icon: Icons, list: DestinoList},
                 {name: "tipos", icon: Icons, list: TipoList},
-                {name: "casasimages"},
             ]}
             i18nProvider={i18nProvider}
             Header={Header}
