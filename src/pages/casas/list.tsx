@@ -1,7 +1,7 @@
 import {
     useTranslate,
     IResourceComponentsProps,
-    useMany,
+    useMany, AuthProvider,
 } from "@pankod/refine-core";
 import {
     List,
@@ -21,8 +21,27 @@ import {
 } from "@pankod/refine-antd";
 import {ICasa, IDestino, ITipo} from "interfaces";
 
+import {ImageList, ImageListItem} from "@mui/material";
+import {useList} from "@pankod/refine-core";
+import {useAuth0} from "@auth0/auth0-react";
+
+
 export const CasaList: React.FC<IResourceComponentsProps> = () => {
     const t = useTranslate();
+
+
+    const casasdt = useList<ICasa>({
+        resource: "casas",
+        config: {
+            filters: [
+                {
+                    field: "proprietario",
+                    operator: "eq",
+                    value: useAuth0().user?.email,
+                },
+            ],
+        },
+    }) ?? [];
 
     const {tableProps, sorter} = useTable<ICasa>({
         initialSorter: [
@@ -31,7 +50,22 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
                 order: "desc",
             },
         ],
+        /*initialFilter: [
+            {
+                field: "propid",
+                operator: "eq",
+                value: 35,
+            },
+        ],*/
+        permanentFilter: [
+            {
+                field: "proprietario",
+                operator: "eq",
+                value: useAuth0().user?.email,
+            },
+        ],
     });
+
     const destinoIds =
         tableProps?.dataSource?.map((item) => item.destino.idDestino) ?? [];
     const {data: destinosData, isLoading} = useMany<IDestino>({
@@ -50,7 +84,6 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
             enabled: tipoIds.length > 0,
         },
     });
-
     const {selectProps: destinoSelectProps} = useSelect<IDestino>({
         resource: "destinos",
         optionLabel: "destino",
@@ -59,10 +92,23 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
     const {selectProps: tipoSelectProps} = useSelect<ITipo>({
         resource: "tipos",
         optionLabel: "tipo",
-        optionValue: "tipo",
+        optionValue: "idTipo",
     });
     return (
         <List>
+            <ImageList sx={{width: 500, height: 450}} cols={3} rowHeight={164}>
+                {casasdt.status == 'success' ? casasdt.data.data.map((item) => (
+                    <ImageListItem key={item.codCasa}>
+                        <img
+                            src={`${item.casaimages.img1}?w=164&h=164&fit=crop&auto=format`}
+                            srcSet={`${item.casaimages.img1}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                            alt={item.seoTitle}
+                            loading="lazy"
+                        />
+                    </ImageListItem>
+                )) : []}
+
+            </ImageList>
             <Table {...tableProps} rowKey="codCasa">
                 <Table.Column
                     dataIndex="codCasa"

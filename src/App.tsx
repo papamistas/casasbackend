@@ -5,6 +5,7 @@ import {
     Layout,
     ReadyPage,
     ErrorComponent,
+
 } from "@pankod/refine-antd";
 import "@pankod/refine-antd/dist/styles.min.css";
 import routerProvider from "@pankod/refine-react-router-v6";
@@ -69,7 +70,6 @@ function App() {
             }
         }
     };
-
     getIdTokenClaims().then((token) => {
         if (token) {
             axios.defaults.headers.common = {
@@ -94,6 +94,7 @@ function App() {
                 {name: "casas", icon: Icons, list: CasaList, create: CasaCreate, edit: CasaEdit, show: CasaShow},
                 {name: "destinos", icon: Icons, list: DestinoList},
                 {name: "tipos", icon: Icons, list: TipoList},
+                {name: "casasimages"},
             ]}
             i18nProvider={i18nProvider}
             Header={Header}

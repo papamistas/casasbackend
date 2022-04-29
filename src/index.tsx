@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import "./i18n";
 
-
 ReactDOM.render(
     <React.StrictMode>
         <Auth0Provider
