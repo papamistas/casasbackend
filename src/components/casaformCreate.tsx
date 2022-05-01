@@ -1,18 +1,10 @@
-import {useState} from "react";
-import {useTranslate, IResourceComponentsProps} from "@pankod/refine-core";
+import {IResourceComponentsProps} from "@pankod/refine-core";
 import {
-    Upload,
-    getValueFromEvent,
     Create,
-    Form,
-    Input,
-    Select,
     useSelect,
     useForm,
 } from "@pankod/refine-antd";
-import {useApiUrl} from "@pankod/refine-core";
-import ReactMarkdown from "react-markdown";
-import ReactMde from "react-mde";
+
 
 import "react-mde/lib/styles/css/react-mde-all.css";
 import {ICasa, IDestino, ITipo} from "interfaces";

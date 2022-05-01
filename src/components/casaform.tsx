@@ -1,5 +1,13 @@
-import {Form, Input, Button, Space, Select} from 'antd';
-import {getValueFromEvent, Upload} from "@pankod/refine-antd";
+import {
+    Upload,
+    getValueFromEvent,
+    Create,
+    Form,
+    Input,
+    Select,
+    useSelect,
+    useForm,
+} from "@pankod/refine-antd";
 import ReactMde from "react-mde";
 import ReactMarkdown from "react-markdown";
 import {useApiUrl, useTranslate} from "@pankod/refine-core";
@@ -13,7 +21,6 @@ const CasaForm = (props: any) => {
     return (
 
         <Form {...props.formProps} layout="vertical">
-            <h2>{props.msg}</h2>
 
             <Form.Item label="Tipo" name="tipo">
                 <Select {...props.tipoSelectProps} />

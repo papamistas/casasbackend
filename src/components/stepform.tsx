@@ -5,6 +5,7 @@ import "../styles/index.css" //todo styled component
 import {Icons} from "./icons";
 import CasaForm from "./casaform"
 import {CasaformCreate} from "./casaformCreate";
+import {CasageodataCreate} from "components/casaeodataCreate"
 
 const {Step} = Steps;
 
@@ -15,15 +16,15 @@ const steps = [
     },
     {
         title: 'Geo data',
-        content: <CasaForm msg={"Casas geo data  form"}/>,
+        content: <CasageodataCreate/>,
     },
     {
         title: 'Attribute',
-        content: <CasaForm msg={"Casas attributes   form"}/>,
+        content: <CasaformCreate/>,
     },
     {
         title: 'Images',
-        content: <CasaForm msg={"Casas images   form"}/>,
+        content: <CasaformCreate/>,
     },
 ];
 

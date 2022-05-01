@@ -24,16 +24,15 @@ export interface ICasaimages {
     img1: string;
 }
 
-export interface ICategory {
-    id: string;
-    title: string;
-}
-
-export interface IPost {
-    id: string;
-    title: string;
-    content: string;
-    status: "published" | "draft" | "rejected";
-    createdAt: string;
-    category: ICategory;
+export interface ICasageodata {
+    id: number,
+    pais: string,
+    distrito: string,
+    endereco: string,
+    codpostal: string,
+    lat: string,
+    lng: string,
+    altitude: string,
+    localidade: string,
+    concelho: string
 }
