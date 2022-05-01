@@ -4,21 +4,26 @@ import "@pankod/refine-antd/dist/styles.min.css";
 import "../styles/index.css" //todo styled component
 import {Icons} from "./icons";
 import CasaForm from "./casaform"
+import {CasaformCreate} from "./casaformCreate";
 
 const {Step} = Steps;
 
 const steps = [
     {
-        title: 'First',
-        content: Icons,
+        title: 'Description',
+        content: <CasaformCreate/>,
     },
     {
-        title: 'Second',
-        content: <CasaForm/>,
+        title: 'Geo data',
+        content: <CasaForm msg={"Casas geo data  form"}/>,
     },
     {
-        title: 'Last',
-        content: Icons,
+        title: 'Attribute',
+        content: <CasaForm msg={"Casas attributes   form"}/>,
+    },
+    {
+        title: 'Images',
+        content: <CasaForm msg={"Casas images   form"}/>,
     },
 ];
 

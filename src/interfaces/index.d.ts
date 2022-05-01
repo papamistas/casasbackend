@@ -15,7 +15,7 @@ export interface ICasa {
     localidade: string;
     destino: IDestino;
     tipo: ITipo;
-    casaimages: ICasaimages;
+    casaimages: { id: number };
 }
 
 export interface ICasaimages {

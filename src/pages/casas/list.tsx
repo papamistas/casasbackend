@@ -17,9 +17,9 @@ import {
     TagField,
     FilterDropdown,
     Select,
-    ShowButton,
+    ShowButton, ImageField,
 } from "@pankod/refine-antd";
-import {ICasa, IDestino, ITipo} from "interfaces";
+import {ICasa, IDestino, ITipo, ICasaimages} from "interfaces";
 
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
@@ -55,13 +55,7 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
                 order: "desc",
             },
         ],
-        /*initialFilter: [
-            {
-                field: "propid",
-                operator: "eq",
-                value: 35,
-            },
-        ],*/
+     
         permanentFilter: [
             {
                 field: "proprietario",
@@ -70,10 +64,19 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
             },
         ],
     });
+    const casaimagesIds =
+        tableProps?.dataSource?.map((item) => item.casaimages.id) ?? [];
+    const {data: casaimagesData, isLoading} = useMany<ICasaimages>({
+        resource: "casaimages",
+        ids: casaimagesIds,
+        queryOptions: {
+            enabled: casaimagesIds.length > 0,
+        },
+    });
 
     const destinoIds =
         tableProps?.dataSource?.map((item) => item.destino.idDestino) ?? [];
-    const {data: destinosData, isLoading} = useMany<IDestino>({
+    const {data: destinosData} = useMany<IDestino>({
         resource: "destinos",
         ids: destinoIds,
         queryOptions: {
@@ -101,15 +104,19 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
     });
 
     return (
-//todo cannot get item.casaimages.img1 because data do not come.
+//todo create field for user to order images
         <List>
-            <ImageList sx={{width: 500, height: 450}} cols={3} rowHeight={164}>
+            <ImageList sx={{width: 200, height: 200}} cols={1} rowHeight={225}>
                 {casasdt?.data?.data?.map((item) => (
+
                     <ImageListItem key={item.codCasa}>
                         <img
-                            /*src={`${item.casaimages}?w=164&h=164&fit=crop&auto=format`}*/
-                            src="/images/noimage.jpg?w=164&h=164&fit=crop&auto=format"
-                            srcSet={`${item.casaimages}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                            src={`${casaimagesData?.data.find(
+                                (it) => it.codCasa === item.codCasa,
+                            )?.img1}?w=164&h=164&fit=crop&auto=format`}
+                            srcSet={`${casaimagesData?.data.find(
+                                (it) => it.codCasa === item.codCasa,
+                            )?.img1}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                             alt={item.seoTitle}
                             loading="lazy"
                         />
@@ -126,10 +133,43 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
                             }
                         />
                     </ImageListItem>
-                ))} ??
+                ))}`
 
             </ImageList>
             <Table {...tableProps} rowKey="codCasa">
+                <Table.Column
+                    dataIndex="codCasa"
+                    key="codCasa"
+                    title="Image"
+                    render={(value) =>
+                        <ImageList sx={{width: 200, height: 200}} cols={1} rowHeight={225}>
+                            <ImageListItem key={value}>
+                                <img
+                                    src={`${casaimagesData?.data.find(
+                                        (item) => item.codCasa === value,
+                                    )?.img1}?w=164&h=164&fit=crop&auto=format`}
+                                    srcSet={`${casaimagesData?.data.find(
+                                        (item) => item.codCasa === value,
+                                    )?.img1}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                    alt={value}
+                                    loading="lazy"
+                                />
+                                <ImageListItemBar
+                                    title={value}
+                                    subtitle={value}
+                                    actionIcon={
+                                        <IconButton
+                                            sx={{color: 'rgba(255, 255, 255, 0.54)'}}
+                                            aria-label={`info about ${value}`}
+                                        >
+                                            <InfoIcon/>
+                                        </IconButton>
+                                    }
+                                />
+                            </ImageListItem>
+                        </ImageList>}
+                />
+
                 <Table.Column
                     dataIndex="codCasa"
                     key="codCasa"
@@ -205,7 +245,6 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
                             />
                         </FilterDropdown>
                     )}
-                    /*render={(value) => <TagField value={value} />}*/
                     render={(value) => {
                         if (isLoading) {
                             return <TextField value="Loading..."/>;
