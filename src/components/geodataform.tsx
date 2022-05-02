@@ -16,7 +16,7 @@ const Geodataform = (props: any) => {
     const t = useTranslate();
     return (
 
-        <Form layout="vertical">
+        <Form {...props.formProps} layout="vertical">
             <Form.Item
                 label="pais"
                 name="pais"

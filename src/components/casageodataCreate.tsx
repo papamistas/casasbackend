@@ -13,14 +13,17 @@ import Geodataform from "components/geodataform"
 export const CasageodataCreate: React.FC<IResourceComponentsProps> = () => {
 
 
-    const {formProps, saveButtonProps} = useForm<ICasageodata>();
+    const {formProps, saveButtonProps} = useForm<ICasageodata>({
+        action: "create",
+        resource: "casageodatas",
+        redirect: false
+    });
 
 
     return (
         <>
             <Create saveButtonProps={saveButtonProps}>
-
-                <Geodataform></Geodataform>
+                <Geodataform formProps={formProps}></Geodataform>
             </Create>
         </>
     );

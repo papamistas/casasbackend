@@ -10,7 +10,7 @@ import "react-mde/lib/styles/css/react-mde-all.css";
 import {ICasa, IDestino, ITipo} from "interfaces";
 import CasaForm from "components/casaform";
 
-export const CasaformCreate: React.FC<IResourceComponentsProps> = () => {
+export const CasaCreate: React.FC<IResourceComponentsProps> = () => {
 
 
     const {formProps, saveButtonProps} = useForm<ICasa>();

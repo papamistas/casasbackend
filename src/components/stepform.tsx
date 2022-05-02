@@ -1,34 +1,35 @@
 import React from "react";
-import {Steps, Button, message} from "@pankod/refine-antd";
+import {Steps, Button, message, Divider} from "@pankod/refine-antd";
 import "@pankod/refine-antd/dist/styles.min.css";
 import "../styles/index.css" //todo styled component
-import {Icons} from "./icons";
-import CasaForm from "./casaform"
-import {CasaformCreate} from "./casaformCreate";
-import {CasageodataCreate} from "components/casaeodataCreate"
+
+import {CasaCreate} from "./casaformCreate";
+import {CasageodataCreate} from "components/casageodataCreate"
+import {CasaimagesCreate} from "./casaimagesCreate";
 
 const {Step} = Steps;
 
 const steps = [
     {
         title: 'Description',
-        content: <CasaformCreate/>,
+        content: <><Divider/><CasaCreate/></>,
     },
     {
         title: 'Geo data',
-        content: <CasageodataCreate/>,
+        content: <><Divider/><CasageodataCreate/></>,
     },
     {
-        title: 'Attribute',
-        content: <CasaformCreate/>,
+        title: 'Attributes',
+        content: <CasaCreate/>,
     },
     {
         title: 'Images',
-        content: <CasaformCreate/>,
+        content: <><Divider/><CasaimagesCreate/></>,
     },
 ];
 
 const StepFormCasa = () => {
+
     const [current, setCurrent] = React.useState(0);
 
     const next = () => {
@@ -41,6 +42,7 @@ const StepFormCasa = () => {
 
     return (
         <>
+
             <Steps current={current}>
                 {steps.map(item => (
                     <Step key={item.title} title={item.title}/>

@@ -16,6 +16,7 @@ import {CasaList, CasaCreate, CasaEdit, CasaShow} from "pages/casas";
 import {Icons} from "./components/icons";
 import {DestinoList} from "pages/destinos";
 import {TipoList} from "pages/tipos";
+import {CasageodataCreate} from "pages/casageodatas";
 import {useTranslation} from "react-i18next";
 import {Login} from "pages/login";
 import axios from "axios";
@@ -94,6 +95,9 @@ function App() {
                 {name: "casas", icon: Icons, list: CasaList, create: CasaCreate, edit: CasaEdit, show: CasaShow},
                 {name: "destinos", icon: Icons, list: DestinoList},
                 {name: "tipos", icon: Icons, list: TipoList},
+                /*
+                                {name: "casasgeodata", icon: Icons, create: CasageodataCreate},
+                */
             ]}
             i18nProvider={i18nProvider}
             Header={Header}

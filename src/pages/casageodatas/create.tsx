@@ -1,9 +1,7 @@
 import Stepform from "components/stepform";
-import {Divider} from "@pankod/refine-antd";
-import React from "react";
 
 
-export const CasaCreate = () => {
+export const CasageodataCreate = () => {
     return (
         <>
             <Stepform></Stepform>
@@ -11,8 +9,3 @@ export const CasaCreate = () => {
         </>
     );
 };
-
-
-
-
-
