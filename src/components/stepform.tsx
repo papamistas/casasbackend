@@ -7,11 +7,13 @@ import { CasaCreate } from "./casaformCreate";
 import { CasageodataCreate } from "components/casageodataCreate";
 import { CasaimagesCreate } from "./casaimagesCreate";
 import { CasaattributesCreate } from "./casasatributtesCreate";
+import { HomeOutlined } from "@ant-design/icons";
 
 const { Step } = Steps;
 
 const steps = [
   {
+    icon: <HomeOutlined />,
     title: "Description",
     content: (
       <>
@@ -60,11 +62,16 @@ const StepFormCasa = () => {
     setCurrent(current - 1);
   };
 
+  const onChange = (current: any) => {
+    console.log("onChange:", current);
+    setCurrent(current);
+  };
+
   return (
     <>
-      <Steps current={current}>
+      <Steps current={current} percent={100} onChange={onChange}>
         {steps.map((item) => (
-          <Step key={item.title} title={item.title} />
+          <Step key={item.title} title={item.title} /*icon={item.icon} */ />
         ))}
       </Steps>
       <div className="steps-content">{steps[current].content}</div>

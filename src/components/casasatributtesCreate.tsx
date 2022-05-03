@@ -3,7 +3,7 @@ import { Create, useSelect, useForm } from "@pankod/refine-antd";
 
 import "react-mde/lib/styles/css/react-mde-all.css";
 import { ICasaattributes } from "interfaces";
-import { Casaattributesform } from "components/CasaattributesformCreate";
+import Casaattributesform from "components/CasaattributesformCreate";
 
 export const CasaattributesCreate: React.FC<IResourceComponentsProps> = () => {
   const { formProps, saveButtonProps } = useForm<ICasaattributes>({
