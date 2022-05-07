@@ -6,7 +6,7 @@ import "../styles/index.css"; //todo styled component
 import { CasaEdit } from "./casaformEdit";
 import { CasageodatasEdit } from "components/casageodataEdit";
 import { CasaimagesCreate } from "./casaimagesCreate";
-import { CasaattributesCreate } from "./casasatributtesCreate";
+import { CasaattributesEdit } from "./casaattributesEdit";
 import { CasaamenitiesEdit } from "./casaamenitiesEdit";
 
 const { Step } = Steps;
@@ -44,7 +44,7 @@ const steps = [
     content: (
       <>
         <Divider />
-        <CasaattributesCreate />
+        <CasaattributesEdit />
       </>
     ),
   },

@@ -6,7 +6,7 @@ import "../styles/index.css"; //todo styled component
 import { CasaCreate } from "./casaformCreate";
 import { CasageodataCreate } from "components/casageodataCreate";
 import { CasaimagesCreate } from "./casaimagesCreate";
-import { CasaattributesCreate } from "./casasatributtesCreate";
+import { CasaattributesCreate } from "./casasattributesCreate";
 import { HomeOutlined } from "@ant-design/icons";
 import { CasaamenitiesCreate } from "./casaamenitiesCreate";
 

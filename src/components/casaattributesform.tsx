@@ -34,80 +34,123 @@ const tailFormItemLayout = {
     },
   },
 };
+//todo refator this table, remove and or add attributes
 const Casaattributesform = (props: any) => {
   const t = useTranslate();
   return (
     <Form {...props.formProps} labelAlign={"right"} layout="inline">
-      <Form.Item {...tailFormItemLayout} label="Piscina" name="piscina">
+      <Form.Item
+        valuePropName={"checked"}
+        {...tailFormItemLayout}
+        label="Piscina"
+        name={["casaattributes", "piscina"]}
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="televisao" name="televisao">
+      <Form.Item
+        valuePropName={"checked"}
+        label="televisao"
+        name={["casaattributes", "televisao"]}
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="arCondicionado" name="arCondicionado">
+      <Form.Item
+        valuePropName={"checked"}
+        label="arCondicionado"
+        name={["casaattributes", "arCondicionado"]}
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="roupascama" name="roupascama">
+      <Form.Item
+        valuePropName={"checked"}
+        label="roupascama"
+        name={["casaattributes", "roupascama"]}
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="roupasbanho" name="roupasbanho">
+      <Form.Item
+        valuePropName={"checked"}
+        label="roupasbanho"
+        name={["casaattributes", "roupasbanho"]}
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="limpeza" name="limpeza">
+      <Form.Item
+        valuePropName={"checked"}
+        label="limpeza"
+        name={["casaattributes", "limpeza"]}
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="utilcozinha" name="utilcozinha">
+      <Form.Item
+        valuePropName={"checked"}
+        label="utilcozinha"
+        name="utilcozinha"
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="fogao" name="fogao">
+      <Form.Item valuePropName={"checked"} label="fogao" name="fogao">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="frigorif" name="frigorif">
+      <Form.Item valuePropName={"checked"} label="frigorif" name="frigorif">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="congel" name="congel">
+      <Form.Item valuePropName={"checked"} label="congel" name="congel">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="forno" {...tailFormItemLayout} name="forno">
+      <Form.Item
+        valuePropName={"checked"}
+        label="forno"
+        {...tailFormItemLayout}
+        name="forno"
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="barbecue" name="barbecue">
+      <Form.Item valuePropName={"checked"} label="barbecue" name="barbecue">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="microndas" name="microndas">
+      <Form.Item valuePropName={"checked"} label="microndas" name="microndas">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="mlavaloica" name="mlavaloica">
+      <Form.Item valuePropName={"checked"} label="mlavaloica" name="mlavaloica">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="mlavaroupa" name="mlavaroupa">
+      <Form.Item valuePropName={"checked"} label="mlavaroupa" name="mlavaroupa">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="aqcentral" name="aqcentral">
+      <Form.Item valuePropName={"checked"} label="aqcentral" name="aqcentral">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="satcabo" name="satcabo">
+      <Form.Item valuePropName={"checked"} label="satcabo" name="satcabo">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="internet" name="internet">
+      <Form.Item valuePropName={"checked"} label="internet" name="internet">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="fengomar" name="fengomar">
+      <Form.Item valuePropName={"checked"} label="fengomar" name="fengomar">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="estacionamento" name="estacionamento">
+      <Form.Item
+        valuePropName={"checked"}
+        label="estacionamento"
+        name="estacionamento"
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="telefone" name="telefone">
+      <Form.Item valuePropName={"checked"} label="telefone" name="telefone">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="despertador" name="despertador">
+      <Form.Item
+        valuePropName={"checked"}
+        label="despertador"
+        name="despertador"
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="dvd" name="dvd">
+      <Form.Item valuePropName={"checked"} label="dvd" name="dvd">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="torradeira" name="torradeira">
+      <Form.Item valuePropName={"checked"} label="torradeira" name="torradeira">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
     </Form>
