@@ -4,7 +4,7 @@ import "@pankod/refine-antd/dist/styles.min.css";
 import "../styles/index.css"; //todo styled component
 
 import { CasaEdit } from "./casaformEdit";
-import { CasageodataEdit } from "components/casageodataEdit";
+import { CasageodatasEdit } from "components/casageodataEdit";
 import { CasaimagesCreate } from "./casaimagesCreate";
 import { CasaattributesCreate } from "./casasatributtesCreate";
 import { CasaamenitiesEdit } from "./casaamenitiesEdit";
@@ -35,7 +35,7 @@ const steps = [
     content: (
       <>
         <Divider />
-        <CasageodataEdit />
+        <CasageodatasEdit />
       </>
     ),
   },
