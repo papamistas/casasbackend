@@ -1,5 +1,5 @@
-import { AuthProvider, Refine } from "@pankod/refine-core";
-import { useAuth0 } from "@auth0/auth0-react";
+import {AuthProvider, Refine} from "@pankod/refine-core";
+import {useAuth0} from "@auth0/auth0-react";
 import {
   notificationProvider,
   Layout,
@@ -10,20 +10,20 @@ import "@pankod/refine-antd/dist/styles.min.css";
 import routerProvider from "@pankod/refine-react-router-v6";
 import dataProvider from "@pankod/refine-simple-rest";
 
-import { Header } from "components/layout";
-import { CasaList, CasaCreate, CasaEdit, CasaShow } from "pages/casas";
-import { Icons } from "./components/icons";
-import { DestinoList } from "pages/destinos";
-import { TipoList } from "pages/tipos";
-import { CasageodataCreate } from "pages/casageodatas";
-import { useTranslation } from "react-i18next";
-import { Login } from "pages/login";
+import {Header} from "components/layout";
+import {CasaList, CasaCreate, CasaEdit, CasaShow} from "pages/casas";
+import {Icons} from "./components/icons";
+import {DestinoList} from "pages/destinos";
+import {TipoList} from "pages/tipos";
+import {CasageodataCreate} from "pages/casageodatas";
+import {useTranslation} from "react-i18next";
+import {Login} from "pages/login";
 import axios from "axios";
-import { newEnforcer } from "casbin.js";
-import { model, adapter } from "./accessControl";
+import {newEnforcer} from "casbin.js";
+import {model, adapter} from "./accessControl";
 
 function App() {
-  const { t, i18n } = useTranslation();
+  const {t, i18n} = useTranslation();
 
   const i18nProvider = {
     translate: (key: string, params: object) => t(key, params),
@@ -31,8 +31,8 @@ function App() {
     getLocale: () => i18n.language,
   };
 
-  const { isLoading, isAuthenticated, user, logout, getIdTokenClaims } =
-    useAuth0();
+  const {isLoading, isAuthenticated, user, logout, getIdTokenClaims} =
+      useAuth0();
 
   if (isLoading) {
     return <span>loading...</span>;
@@ -43,7 +43,7 @@ function App() {
       return Promise.resolve();
     },
     logout: () => {
-      logout({ returnTo: window.location.origin });
+      logout({returnTo: window.location.origin});
       return Promise.resolve("/");
     },
     checkError: () => Promise.resolve(),
@@ -73,42 +73,42 @@ function App() {
   });
 
   return (
-    <Refine
-      LoginPage={Login}
-      authProvider={authProvider}
-      notificationProvider={notificationProvider}
-      Layout={Layout}
-      ReadyPage={ReadyPage}
-      catchAll={<ErrorComponent />}
-      routerProvider={routerProvider}
-      dataProvider={dataProvider("http://172.19.0.4")}
-      accessControlProvider={{
-        can: async ({ resource, action }) => {
-          const enforcer = await newEnforcer(model, adapter);
-          const can = await enforcer.enforce("admin", resource, action);
+      <Refine
+          LoginPage={Login}
+          authProvider={authProvider}
+          notificationProvider={notificationProvider}
+          Layout={Layout}
+          ReadyPage={ReadyPage}
+          catchAll={<ErrorComponent/>}
+          routerProvider={routerProvider}
+          dataProvider={dataProvider("http://172.19.0.4")}
+          accessControlProvider={{
+            can: async ({resource, action}) => {
+              const enforcer = await newEnforcer(model, adapter);
+              const can = await enforcer.enforce("admin", resource, action);
 
-          return Promise.resolve({ can });
-        },
-      }}
-      resources={[
-        {
-          name: "casas",
-          icon: Icons,
-          list: CasaList,
-          create: CasaCreate,
-          edit: CasaEdit,
-          show: CasaShow,
-          canDelete: false,
-        },
-        { name: "destinos", icon: Icons, list: DestinoList },
-        { name: "tipos", icon: Icons, list: TipoList },
-        /*
-                                                {name: "casasgeodata", icon: Icons, create: CasageodataCreate},
-                                                                */
-      ]}
-      i18nProvider={i18nProvider}
-      Header={Header}
-    />
+              return Promise.resolve({can});
+            },
+          }}
+          resources={[
+            {
+              name: "casas",
+              icon: Icons,
+              list: CasaList,
+              create: CasaCreate,
+              edit: CasaEdit,
+              show: CasaShow,
+              canDelete: false,
+            },
+            {name: "destinos", icon: Icons, list: DestinoList},
+            {name: "tipos", icon: Icons, list: TipoList},
+            /*{name: "casasgeodata", icon: Icons, create: CasageodataCreate},*/
+
+
+          ]}
+          i18nProvider={i18nProvider}
+          Header={Header}
+      />
   );
 }
 

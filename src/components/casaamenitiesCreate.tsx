@@ -12,6 +12,7 @@ export const CasaamenitiesCreate: React.FC<IResourceComponentsProps> = () => {
     resource: "casaamenities",
     redirect: false,
   });
+  debugger;
 
   return (
     <>

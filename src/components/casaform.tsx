@@ -32,7 +32,7 @@ const CasaForm = (props: any) => {
   };
   return (
     <Form {...props.formProps} {...formItemLayout} layout="horizontal">
-      <Form.Item label="forSale" name="forSale">
+      <Form.Item valuePropName={"checked"} label="forSale" name="forSale">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
       <Form.Item
@@ -46,10 +46,10 @@ const CasaForm = (props: any) => {
       >
         <Input />
       </Form.Item>
-      <Form.Item label="forRent" name="forRent">
+      <Form.Item valuePropName={"checked"} label="forRent" name="forRent">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="forArrenda" name="forArrenda">
+      <Form.Item valuePropName={"checked"} label="forArrenda" name="forArrenda">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
       <Form.Item
@@ -63,7 +63,7 @@ const CasaForm = (props: any) => {
       >
         <Input />
       </Form.Item>
-      <Form.Item label="Caucao" name="caucao">
+      <Form.Item valuePropName={"checked"} label="Caucao" name="caucao">
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
       <Form.Item
@@ -77,7 +77,11 @@ const CasaForm = (props: any) => {
       >
         <Input />
       </Form.Item>
-      <Form.Item label="certifEnerg" name="certifEnerg">
+      <Form.Item
+        valuePropName={"checked"}
+        label="certifEnerg"
+        name="certifEnerg"
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
       <Form.Item
@@ -124,8 +128,12 @@ const CasaForm = (props: any) => {
       >
         <Input />
       </Form.Item>
-      <Form.Item label="Proprietario" name="proprietario">
-        <Input hidden defaultValue={useAuth0().user?.email} />
+      <Form.Item
+        initialValue={useAuth0().user?.email}
+        label="Proprietario"
+        name="proprietario"
+      >
+        <Input />
       </Form.Item>
       <Form.Item label="Tipo" name="tipo">
         <Select {...props.tipoSelectProps} />

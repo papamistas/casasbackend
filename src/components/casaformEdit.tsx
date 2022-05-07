@@ -1,11 +1,11 @@
 import { IResourceComponentsProps } from "@pankod/refine-core";
-import { Create, useSelect, useForm } from "@pankod/refine-antd";
+import { Edit, useSelect, useForm } from "@pankod/refine-antd";
 
 import "react-mde/lib/styles/css/react-mde-all.css";
 import { ICasa, IDestino, ITipo } from "interfaces";
 import CasaForm from "components/casaform";
 
-export const CasaCreate: React.FC<IResourceComponentsProps> = () => {
+export const CasaEdit: React.FC<IResourceComponentsProps> = () => {
   const { formProps, saveButtonProps } = useForm<ICasa>();
 
   const { selectProps: destinoSelectProps } = useSelect<IDestino>({
@@ -21,13 +21,13 @@ export const CasaCreate: React.FC<IResourceComponentsProps> = () => {
 
   return (
     <>
-      <Create saveButtonProps={saveButtonProps}>
+      <Edit saveButtonProps={saveButtonProps}>
         <CasaForm
           formProps={formProps}
           destinoSelectProps={destinoSelectProps}
           tipoSelectProps={tipoSelectProps}
         ></CasaForm>
-      </Create>
+      </Edit>
     </>
   );
 };

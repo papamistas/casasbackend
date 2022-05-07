@@ -17,6 +17,7 @@ export interface ICasa {
   tipo: ITipo;
   casaimages: { id: number };
   activo: number;
+  anoconstrucao: number;
 }
 
 export interface ICasaimages {

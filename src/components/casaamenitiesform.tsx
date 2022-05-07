@@ -28,7 +28,7 @@ const Casaamenitiesform = (props: any) => {
     <Form {...props.formProps} {...formItemLayout} layout="horizontal">
       <Form.Item
         label="quartos"
-        name="quartos"
+        name={["casaamenities", "quartos"]}
         rules={[
           {
             required: true,
@@ -39,7 +39,7 @@ const Casaamenitiesform = (props: any) => {
       </Form.Item>
       <Form.Item
         label="camassingle"
-        name="camassingle"
+        name={["casaamenities", "camassingle"]}
         rules={[
           {
             required: true,
@@ -50,7 +50,7 @@ const Casaamenitiesform = (props: any) => {
       </Form.Item>
       <Form.Item
         label="camascasal"
-        name="camascasal"
+        name={["casaamenities", "camascasal"]}
         rules={[
           {
             required: true,
@@ -61,7 +61,7 @@ const Casaamenitiesform = (props: any) => {
       </Form.Item>
       <Form.Item
         label="casasbanho"
-        name="casasbanho"
+        name={["casaamenities", "casasbanho"]}
         rules={[
           {
             required: true,
@@ -70,13 +70,25 @@ const Casaamenitiesform = (props: any) => {
       >
         <Input />
       </Form.Item>
-      <Form.Item label="animais" name="animais">
+      <Form.Item
+        valuePropName={"checked"}
+        label="animais"
+        name={["casaamenities", "animais"]}
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="fumadores" name="fumadores">
+      <Form.Item
+        valuePropName={"checked"}
+        label="fumadores"
+        name={["casaamenities", "fumadores"]}
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item label="deficientes" name="deficientes">
+      <Form.Item
+        valuePropName={"checked"}
+        label="deficientes"
+        name={["casaamenities", "deficientes"]}
+      >
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
     </Form>

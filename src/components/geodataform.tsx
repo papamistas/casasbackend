@@ -27,7 +27,7 @@ const Geodataform = (props: any) => {
     <Form {...props.formProps} {...formItemLayout} layout="horizontal">
       <Form.Item
         label="pais"
-        name="pais"
+        name={["casageodatas", "pais"]}
         rules={[
           {
             required: true,
@@ -38,7 +38,7 @@ const Geodataform = (props: any) => {
       </Form.Item>
       <Form.Item
         label="distrito"
-        name="distrito"
+        name={["casageodatas", "distrito"]}
         rules={[
           {
             required: true,
@@ -49,7 +49,7 @@ const Geodataform = (props: any) => {
       </Form.Item>
       <Form.Item
         label="concelho"
-        name="concelho"
+        name={["casageodatas", "concelho"]}
         rules={[
           {
             required: true,
@@ -60,7 +60,7 @@ const Geodataform = (props: any) => {
       </Form.Item>
       <Form.Item
         label="localidade"
-        name="localidade"
+        name={["casageodatas", "localidade"]}
         rules={[
           {
             required: true,
@@ -71,7 +71,7 @@ const Geodataform = (props: any) => {
       </Form.Item>
       <Form.Item
         label="codpostal"
-        name="codpostal"
+        name={["casageodatas", "codpostal"]}
         rules={[
           {
             required: true,
@@ -82,7 +82,7 @@ const Geodataform = (props: any) => {
       </Form.Item>
       <Form.Item
         label="lat"
-        name="lat"
+        name={["casageodatas", "lat"]}
         rules={[
           {
             required: true,
@@ -93,7 +93,7 @@ const Geodataform = (props: any) => {
       </Form.Item>
       <Form.Item
         label="long"
-        name="long"
+        name={["casageodatas", "long"]}
         rules={[
           {
             required: true,
@@ -104,7 +104,7 @@ const Geodataform = (props: any) => {
       </Form.Item>
       <Form.Item
         label="altitude"
-        name="altitude"
+        name={["casageodatas", "altitude"]}
         rules={[
           {
             required: true,

@@ -132,7 +132,7 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
               loading="lazy"
             />
             <ImageListItemBar
-              title={item.casaimages}
+              title={item.seoTitle}
               subtitle={item.codCasa}
               actionIcon={
                 <IconButton

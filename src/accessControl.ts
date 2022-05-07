@@ -18,7 +18,7 @@ m = g(r.sub, p.sub) && keyMatch(r.obj, p.obj) && regexMatch(r.act, p.act)
 `);
 
 export const adapter = new MemoryAdapter(`
-p, admin, casas, (list)|(create)
+p, admin, casas, (list)|(create)|(edit)
 p, admin, destinos, (list)|(create)
 p, admin, tipos, (list)|(create)|(edit)
 
