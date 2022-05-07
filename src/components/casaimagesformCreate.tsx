@@ -16,7 +16,7 @@ const Casaimagesform = (props: any) => {
   const t = useTranslate();
   return (
     <Form {...props.formProps} layout="horizontal">
-      <Form.Item label="Image">
+      <Form.Item>
         <Form.Item
           name="image"
           valuePropName="fileList"

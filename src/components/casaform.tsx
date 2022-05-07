@@ -7,12 +7,15 @@ import {
   Select,
   useSelect,
   useForm,
+  Switch,
 } from "@pankod/refine-antd";
-import ReactMde from "react-mde";
-import ReactMarkdown from "react-markdown";
+
 import { useApiUrl, useTranslate } from "@pankod/refine-core";
 import { useState } from "react";
+import { Hidden } from "@mui/material";
+import { useAuth0 } from "@auth0/auth0-react";
 
+const { TextArea } = Input;
 const CasaForm = (props: any) => {
   const apiUrl = useApiUrl();
   const t = useTranslate();
@@ -29,17 +32,12 @@ const CasaForm = (props: any) => {
   };
   return (
     <Form {...props.formProps} {...formItemLayout} layout="horizontal">
-      <Form.Item label="Tipo" name="tipo">
-        <Select {...props.tipoSelectProps} />
+      <Form.Item label="forSale" name="forSale">
+        <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-
-      <Form.Item label="Destino" name="destino">
-        <Select {...props.destinoSelectProps} />
-      </Form.Item>
-
       <Form.Item
-        label={t("casas.fields.localidade")}
-        name="localidade"
+        label={t("casas.fields.valorVenda")}
+        name="valorVenda"
         rules={[
           {
             required: true,
@@ -48,6 +46,94 @@ const CasaForm = (props: any) => {
       >
         <Input />
       </Form.Item>
+      <Form.Item label="forRent" name="forRent">
+        <Switch checkedChildren="Yes" unCheckedChildren="No" />
+      </Form.Item>
+      <Form.Item label="forArrenda" name="forArrenda">
+        <Switch checkedChildren="Yes" unCheckedChildren="No" />
+      </Form.Item>
+      <Form.Item
+        label={t("casas.fields.valorArrenda")}
+        name="valorVenda"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item label="Caucao" name="caucao">
+        <Switch checkedChildren="Yes" unCheckedChildren="No" />
+      </Form.Item>
+      <Form.Item
+        label={t("casas.fields.valorcaucao")}
+        name="valorcaucao"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item label="certifEnerg" name="certifEnerg">
+        <Switch checkedChildren="Yes" unCheckedChildren="No" />
+      </Form.Item>
+      <Form.Item
+        label={t("casas.fields.certifEnerg")}
+        name="certifEnerg"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        label={t("casas.fields.anoContrucao")}
+        name="anoContrucao"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        label={t("casas.fields.area")}
+        name="area"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        label={t("casas.fields.titulo")}
+        name="titulo"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item label="Proprietario" name="proprietario">
+        <Input hidden defaultValue={useAuth0().user?.email} />
+      </Form.Item>
+      <Form.Item label="Tipo" name="tipo">
+        <Select {...props.tipoSelectProps} />
+      </Form.Item>
+      <Form.Item label="Destino" name="destino">
+        <Select {...props.destinoSelectProps} />
+      </Form.Item>
+
       <Form.Item
         label={t("casas.fields.seoTitle")}
         name="seoTitle"
@@ -59,31 +145,18 @@ const CasaForm = (props: any) => {
       >
         <Input />
       </Form.Item>
-      <Form.Item label="Image">
-        <Form.Item
-          name="image"
-          valuePropName="fileList"
-          getValueFromEvent={getValueFromEvent}
-          noStyle
-        >
-          <Upload.Dragger
-            name="file"
-            action={`${apiUrl}/media/upload`}
-            listType="picture"
-            maxCount={5}
-            multiple
-          >
-            <p className="ant-upload-text">Drag & drop a file in this area</p>
-          </Upload.Dragger>
-        </Form.Item>
+
+      <Form.Item
+        label={t("casas.fields.designacao")}
+        name="designacao"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <TextArea rows={4} placeholder="maxLength is 6" maxLength={6} />
       </Form.Item>
-      <ReactMde
-        selectedTab={selectedTab}
-        onTabChange={setSelectedTab}
-        generateMarkdownPreview={(markdown) =>
-          Promise.resolve(<ReactMarkdown>{markdown}</ReactMarkdown>)
-        }
-      />
     </Form>
   );
 };

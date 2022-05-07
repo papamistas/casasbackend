@@ -40,6 +40,11 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
       config: {
         filters: [
           {
+            field: "activo",
+            operator: "eq",
+            value: 1,
+          },
+          {
             field: "proprietario",
             operator: "eq",
             value: useAuth0().user?.email,
@@ -51,19 +56,24 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
   const { tableProps, sorter } = useTable<ICasa>({
     initialSorter: [
       {
-        field: "codCasa",
+        field: "cod_casa",
         order: "desc",
       },
     ],
-
     permanentFilter: [
       {
         field: "proprietario",
         operator: "eq",
         value: useAuth0().user?.email,
       },
+      {
+        field: "activo",
+        operator: "eq",
+        value: 1,
+      },
     ],
   });
+
   const casaimagesIds =
     tableProps?.dataSource?.map((item) => item.casaimages.id) ?? [];
   const { data: casaimagesData, isLoading } = useMany<ICasaimages>({
@@ -104,7 +114,7 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
   });
 
   return (
-    //todo create field for user to order images
+    //todo create field for user to order images (ex:order)
     <List>
       <ImageList sx={{ width: 200, height: 200 }} cols={1} rowHeight={225}>
         {casasdt?.data?.data?.map((item) => (

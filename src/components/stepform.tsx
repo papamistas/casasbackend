@@ -8,17 +8,27 @@ import { CasageodataCreate } from "components/casageodataCreate";
 import { CasaimagesCreate } from "./casaimagesCreate";
 import { CasaattributesCreate } from "./casasatributtesCreate";
 import { HomeOutlined } from "@ant-design/icons";
+import { CasaamenitiesCreate } from "./casaamenitiesCreate";
 
 const { Step } = Steps;
 
 const steps = [
   {
-    icon: <HomeOutlined />,
+    /*icon: <HomeOutlined />,*/
     title: "Description",
     content: (
       <>
         <Divider />
         <CasaCreate />
+      </>
+    ),
+  },
+  {
+    title: "Amenities",
+    content: (
+      <>
+        <Divider />
+        <CasaamenitiesCreate />
       </>
     ),
   },

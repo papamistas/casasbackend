@@ -16,6 +16,7 @@ export interface ICasa {
   destino: IDestino;
   tipo: ITipo;
   casaimages: { id: number };
+  activo: number;
 }
 
 export interface ICasaimages {
@@ -39,52 +40,40 @@ export interface ICasageodata {
 
 export interface ICasaattributes {
   id: number;
-
   piscina: number;
-
   televisao: number;
-
   arCondicionado: number;
-
   roupascama: number;
-
   roupasbanho: number;
-
   limpeza: number;
-
   utilcozinha: number;
-
   fogao: number;
-
   frigorif: number;
-
   congel: number;
-
   forno: number;
-
   barbecue: number;
-
   microndas: number;
-
   mlavaloica: number;
-
   mlavaroupa: number;
-
   aqcentral: number;
-
   satcabo: number;
-
   internet: number;
-
   fengomar: number;
-
   estacionamento: number;
-
   telefone: number;
-
   despertador: number;
-
   dvd: number;
-
   torradeira: number;
+}
+
+export interface ICasaamenities {
+  id: number;
+  codCasa: number;
+  quartos: number;
+  camassingle: number;
+  camascasal: number;
+  casasbanho: number;
+  animais: number;
+  fumadores: number;
+  deficientes: number;
 }

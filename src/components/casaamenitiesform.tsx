@@ -7,11 +7,12 @@ import {
   Select,
   useSelect,
   useForm,
+  Switch,
 } from "@pankod/refine-antd";
 
 import { useTranslate } from "@pankod/refine-core";
 
-const Geodataform = (props: any) => {
+const Casaamenitiesform = (props: any) => {
   const t = useTranslate();
   const formItemLayout = {
     labelCol: {
@@ -26,8 +27,8 @@ const Geodataform = (props: any) => {
   return (
     <Form {...props.formProps} {...formItemLayout} layout="horizontal">
       <Form.Item
-        label="pais"
-        name="pais"
+        label="quartos"
+        name="quartos"
         rules={[
           {
             required: true,
@@ -37,8 +38,8 @@ const Geodataform = (props: any) => {
         <Input />
       </Form.Item>
       <Form.Item
-        label="distrito"
-        name="distrito"
+        label="camassingle"
+        name="camassingle"
         rules={[
           {
             required: true,
@@ -48,8 +49,8 @@ const Geodataform = (props: any) => {
         <Input />
       </Form.Item>
       <Form.Item
-        label="concelho"
-        name="concelho"
+        label="camascasal"
+        name="camascasal"
         rules={[
           {
             required: true,
@@ -59,8 +60,8 @@ const Geodataform = (props: any) => {
         <Input />
       </Form.Item>
       <Form.Item
-        label="localidade"
-        name="localidade"
+        label="casasbanho"
+        name="casasbanho"
         rules={[
           {
             required: true,
@@ -69,53 +70,17 @@ const Geodataform = (props: any) => {
       >
         <Input />
       </Form.Item>
-      <Form.Item
-        label="codpostal"
-        name="codpostal"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
+      <Form.Item label="animais" name="animais">
+        <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item
-        label="lat"
-        name="lat"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
+      <Form.Item label="fumadores" name="fumadores">
+        <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item
-        label="long"
-        name="long"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
+      <Form.Item label="deficientes" name="deficientes">
+        <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
-      <Form.Item
-        label="altitude"
-        name="altitude"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      //todo get distance from sea
     </Form>
   );
 };
 
-export default Geodataform;
+export default Casaamenitiesform;
