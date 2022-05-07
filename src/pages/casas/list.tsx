@@ -56,6 +56,10 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
   const { tableProps, sorter } = useTable<ICasa>({
     initialSorter: [
       {
+        field: "tipo",
+        order: "asc",
+      },
+      {
         field: "cod_casa",
         order: "desc",
       },
