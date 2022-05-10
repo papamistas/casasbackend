@@ -23,7 +23,14 @@ export interface ICasa {
 export interface ICasaimages {
   id: number;
   codCasa: number;
-  img1: string;
+  img1: [
+    {
+      uid: string;
+      name: string;
+      url: string;
+      status: "error" | "success" | "done" | "uploading" | "removed";
+    }
+  ];
 }
 
 export interface ICasageodata {

@@ -8,7 +8,7 @@ import Casaattributesform from "./casaattributesform";
 export const CasaattributesEdit: React.FC<IResourceComponentsProps> = () => {
   const { formProps, saveButtonProps, setId } = useForm<ICasaattributes>({
     action: "edit",
-    resource: "casas",
+    resource: "casaattributes",
     redirect: false,
   });
 

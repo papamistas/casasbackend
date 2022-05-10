@@ -24,6 +24,8 @@ const Casaamenitiesform = (props: any) => {
       sm: { span: 16 },
     },
   };
+  debugger;
+
   return (
     <Form {...props.formProps} {...formItemLayout} layout="horizontal">
       <Form.Item

@@ -6,7 +6,11 @@ import { ICasa, IDestino, ITipo } from "interfaces";
 import CasaForm from "components/casaform";
 
 export const CasaEdit: React.FC<IResourceComponentsProps> = () => {
-  const { formProps, saveButtonProps } = useForm<ICasa>();
+  const { formProps, saveButtonProps } = useForm<ICasa>({
+    action: "edit",
+    resource: "casas",
+    redirect: false,
+  });
 
   const { selectProps: destinoSelectProps } = useSelect<IDestino>({
     resource: "destinos",

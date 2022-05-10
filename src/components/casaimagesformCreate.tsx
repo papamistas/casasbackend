@@ -16,16 +16,27 @@ const Casaimagesform = (props: any) => {
   const t = useTranslate();
   return (
     <Form {...props.formProps} layout="horizontal">
+      <Form.Item
+        label="Casa"
+        name="codCasa"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
       <Form.Item>
         <Form.Item
-          name="image"
+          name="img1"
           valuePropName="fileList"
           getValueFromEvent={getValueFromEvent}
           noStyle
         >
           <Upload.Dragger
             name="file"
-            action={`${apiUrl}/media/upload`}
+            action={`${apiUrl}`}
             listType="picture"
             maxCount={5}
             multiple

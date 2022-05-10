@@ -9,7 +9,7 @@ import {
 import "@pankod/refine-antd/dist/styles.min.css";
 import routerProvider from "@pankod/refine-react-router-v6";
 import dataProvider from "@pankod/refine-simple-rest";
-
+import { apiPlatformDataProvider } from "./ApiplatformSimpleRest";
 import { Header } from "components/layout";
 import { CasaList, CasaCreate, CasaEdit, CasaShow } from "pages/casas";
 import { Icons } from "./components/icons";
@@ -70,7 +70,6 @@ function App() {
       };
     }
   });
-
   return (
     <Refine
       LoginPage={Login}
@@ -80,7 +79,7 @@ function App() {
       ReadyPage={ReadyPage}
       catchAll={<ErrorComponent />}
       routerProvider={routerProvider}
-      dataProvider={dataProvider("http://172.19.0.4")}
+      dataProvider={apiPlatformDataProvider("http://172.19.0.4")}
       accessControlProvider={{
         can: async ({ resource, action }) => {
           const enforcer = await newEnforcer(model, adapter);

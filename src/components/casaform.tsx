@@ -54,7 +54,7 @@ const CasaForm = (props: any) => {
       </Form.Item>
       <Form.Item
         label={t("casas.fields.valorArrenda")}
-        name="valorVenda"
+        name="valorArrenda"
         rules={[
           {
             required: true,
@@ -85,8 +85,8 @@ const CasaForm = (props: any) => {
         <Switch checkedChildren="Yes" unCheckedChildren="No" />
       </Form.Item>
       <Form.Item
-        label={t("casas.fields.certifEnerg")}
-        name="certifEnerg"
+        label={t("casas.fields.certifEnergLevel")}
+        name="certifEnergLevel"
         rules={[
           {
             required: true,
