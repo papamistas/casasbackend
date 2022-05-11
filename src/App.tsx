@@ -79,7 +79,7 @@ function App() {
       ReadyPage={ReadyPage}
       catchAll={<ErrorComponent />}
       routerProvider={routerProvider}
-      dataProvider={apiPlatformDataProvider("http://172.19.0.4")}
+      dataProvider={apiPlatformDataProvider("http://172.19.0.4/api")}
       accessControlProvider={{
         can: async ({ resource, action }) => {
           const enforcer = await newEnforcer(model, adapter);
