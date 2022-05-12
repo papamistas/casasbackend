@@ -21,6 +21,7 @@ import axios from "axios";
 import { newEnforcer } from "casbin.js";
 import { model, adapter } from "./accessControl";
 
+//todo ?XDEBUG_SESSION_START=PHPSTORM
 function App() {
   const { t, i18n } = useTranslation();
 
@@ -79,7 +80,7 @@ function App() {
       ReadyPage={ReadyPage}
       catchAll={<ErrorComponent />}
       routerProvider={routerProvider}
-      dataProvider={apiPlatformDataProvider("http://172.19.0.4/api")}
+      dataProvider={apiPlatformDataProvider("http://192.168.192.4/api")}
       accessControlProvider={{
         can: async ({ resource, action }) => {
           const enforcer = await newEnforcer(model, adapter);
