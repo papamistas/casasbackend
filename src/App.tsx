@@ -80,7 +80,7 @@ function App() {
       ReadyPage={ReadyPage}
       catchAll={<ErrorComponent />}
       routerProvider={routerProvider}
-      dataProvider={dataProvider("http://172.19.0.4")}
+      dataProvider={dataProvider("http://192.168.192.4")}
       accessControlProvider={{
         can: async ({ resource, action }) => {
           const enforcer = await newEnforcer(model, adapter);
