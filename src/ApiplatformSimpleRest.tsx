@@ -16,7 +16,7 @@ const patchedAxiosInstance = {
       ...(config ?? {}),
       headers: {
         "Content-Type": "application/merge-patch+json",
-        "x-api-token": "hello",
+        /*        "x-api-token": "hello",*/
       },
     });
   },
