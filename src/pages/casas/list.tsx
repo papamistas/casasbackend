@@ -75,6 +75,11 @@ export const CasaList: React.FC<IResourceComponentsProps> = () => {
         operator: "eq",
         value: 1,
       },
+      {
+        field: "XDEBUG_SESSION_START",
+        operator: "eq",
+        value: "PHPSTORM",
+      },
     ],
   });
 
