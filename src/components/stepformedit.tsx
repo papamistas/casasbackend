@@ -1,7 +1,6 @@
 import React from "react";
 import { Steps, Button, message, Divider } from "@pankod/refine-antd";
 import "@pankod/refine-antd/dist/styles.min.css";
-import "../styles/index.css"; //todo styled component
 
 import { CasaEdit } from "./casaformEdit";
 import { CasageodatasEdit } from "components/casageodataEdit";
